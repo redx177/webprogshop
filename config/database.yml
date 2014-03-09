@@ -20,20 +20,13 @@ test:
 
 production:
   adapter: postgresql
-  database: db/production.sqlite3
   encoding: unicode
   pool: 5
-  timeout: 5000
-
-#  adapter: postgresql
-#  encoding: unicode
-#  pool: 5
-#  database: derga7btae4kqe
-#  username: ipyzaweilcehzp
-#  password: eecHsGVRP6ASeS54_s6mOFCf5e
-#  host: ec2-54-225-135-30.compute-1.amazonaws.com
-#  port: 5432
-
+  database: derga7btae4kqe
+  username: ipyzaweilcehzp
+  password: eecHsGVRP6ASeS54_s6mOFCf5e
+  host: ec2-54-225-135-30.compute-1.amazonaws.com
+  port: 5432
 #  adapter: sqlite3
 #  database: db/production.sqlite3
 #  pool: 5
