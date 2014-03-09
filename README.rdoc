@@ -7,11 +7,11 @@
 * Configuration
 
 * Database creation
-	* rake db:create
-    * rake db:migrate
+  * rake db:create
+  * rake db:migrate
 
 * Database initialization
-    * rake db:setup
+  * rake db:setup
 
 * Deployment instructions
-	* git push heroku master
+  * git push heroku master
