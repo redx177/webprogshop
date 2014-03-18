@@ -1,13 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-   title: MyString
+  title: MyString
   description: MyText
-  image_url: MyString
+  image_url: MyString.jpg
   price: 9.99
 
 two:
-   title: MyString
+  title: MyString
   description: MyText
-  image_url: MyString
+  image_url: MyString.gif
   price: 9.99
+
+oneUpShirt:
+  title: 1up t-shirt
+  description:
+    Jetzt kannst Du ein beliebtes Nahrungsmittel
+    aus dem berühmten Computerspiel mit Dir herumtragen.
+  price: 15.90
+  image_url: http://getdigital.de/web/getdigital/gfx/products/__generated__resized/1100x1100/1up.jpg
