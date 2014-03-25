@@ -1,6 +1,19 @@
-<% @products.each do |product| %>
-	<div class="entry">
-		<h3><%= product.title %></h3>
-		<%= image_tag(product.image_url) %>
-	</div>
+<% if notice %>
+	<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>My Pragmatic Catalog</h1>
+
+<% cache ['store', Product.latest] do %>
+	<% @products.each do |product| %>
+		<% cache ['entry', product] do %>
+			<div class="entry">
+				<h3><%= product.title %></h3>
+				<%= image_tag(product.image_url) %>
+				<div class="price_line">
+					<span class="price">Price: <%= number_to_currency(product.price) %></span>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
 <% end %>

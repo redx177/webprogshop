@@ -2,17 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+h1 {
+  margin: 0;
+  padding-bottom: 0.5em;
+  font: 24px sans-serif;
+  color: #226;
+  border-bottom: 3px dashed #77d;
+  margin-bottom: 30px;
+}
+
 .entry {
   float: left;
   padding: 10px;
-  margin-right: 30px;
+  margin: 30px 30px 0 0;
   border: 1px dashed #000000;
 
   img {
-    height: 300px;
+    height: 100px;
   }
 
-  h3 {
-    font-size: 40px;
+  h3, .price {
+    font-size: 12px;
+  }
+
+  .price_line {
+    padding-top: 30px;
   }
 }

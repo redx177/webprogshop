@@ -4,7 +4,9 @@ class StoreControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_select '.store .entry', 3 # see fixtures
+    assert_select '#columns #side a', minimum: 4
+    assert_select '#main .entry', 3
+    assert_select 'h3', '1up t-shirt'
+    assert_select '.price', /\$[,\d]+\.\d\d/
   end
-
 end

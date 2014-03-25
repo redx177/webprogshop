@@ -14,4 +14,8 @@ class Product < ActiveRecord::Base
     return unless self.price*100 % 5 != 0
     errors.add(:price, "can only have .00 or .05 rappen")
   end
+
+  def self.latest
+    Product.order(:updated_at).last
+  end
 end
