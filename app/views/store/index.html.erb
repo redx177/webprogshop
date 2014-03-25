@@ -11,7 +11,7 @@
 				<h3><%= product.title %></h3>
 				<%= image_tag(product.image_url) %>
 				<div class="price_line">
-					<span class="price">Price: <%= number_to_currency(product.price) %></span>
+					<span class="price">Price: <%= format_currency_as_chf(product.price) %></span>
 				</div>
 			</div>
 		<% end %>
