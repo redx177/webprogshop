@@ -6,4 +6,12 @@ class Product < ActiveRecord::Base
       with: %r{\.(gif|jpe?g|png)\Z}i,
       message: 'must be a URL for GIF, JPG or PNG image.'
   }
+
+  validate :validate_five_rappen
+
+  def validate_five_rappen
+    return unless self.price.present?
+    return unless self.price*100 % 5 != 0
+    errors.add(:price, "Price can only have .00 or .05 rappen")
+  end
 end
