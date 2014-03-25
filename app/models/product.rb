@@ -12,6 +12,6 @@ class Product < ActiveRecord::Base
   def validate_five_rappen
     return unless self.price.present?
     return unless self.price*100 % 5 != 0
-    errors.add(:price, "Price can only have .00 or .05 rappen")
+    errors.add(:price, "can only have .00 or .05 rappen")
   end
 end
