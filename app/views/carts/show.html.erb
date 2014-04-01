@@ -1,0 +1,27 @@
+<% if notice %>
+	<p id="notice"><%= notice %></p>
+<% end %>
+<h2>Your Pragmatic Cart</h2>
+<table>
+	<tr>
+		<td>Product</td>
+		<td>Single price</td>
+		<td>Count</td>
+		<td>Total</td>
+	</tr>
+	<% @cart.line_items.each do |item| %>
+		<tr>
+			<td><%= item.product.title %></td>
+			<td><%= format_currency_as_chf(item.product.price) %></td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+	<% end %>
+	<tr>
+		<td></td>
+		<td><%= format_currency_as_chf(@sum) %></td>
+	</tr>
+</table>
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>
