@@ -13,7 +13,7 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     @sum = 0
     @test = nil
-    @cart.line_items.each { |item| @sum+=item.product.price}
+    @cart.line_items.each { |item| @sum+=item.total()}
     #@cart = Cart.find(params[:id]).line_items.all(:group => "product.id")
   end
 

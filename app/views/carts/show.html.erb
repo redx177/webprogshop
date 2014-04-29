@@ -6,15 +6,21 @@
 	<tr>
 		<td>Product</td>
 		<td>Single price</td>
+		<td>&times;</td>
+		<td>Total</td>
 	</tr>
 	<% @cart.line_items.each do |item| %>
 		<tr>
 			<td><%= item.product.title %></td>
 			<td><%= format_currency_as_chf(item.product.price) %></td>
+			<td><%= item.quantity %></td>
+			<td><%= format_currency_as_chf(item.total()) %></td>
 		</tr>
 	<% end %>
 	<tr class="totalprice">
 		<td>Total</td>
+		<td></td>
+		<td></td>
 		<td><%= format_currency_as_chf(@sum) %></td>
 	</tr>
 </table>

@@ -11,7 +11,7 @@
 				<h3><%= product.title %></h3>
 				<%= image_tag(product.image_url) %>
 				<div class="price_line">
-					<span class="price">Price: <%= format_currency_as_chf(product.price) %></span>
+					Price: <span class="price"><%= format_currency_as_chf(product.price) %></span>
 				</div>
 				<%= button_to 'Add to Cart', line_items_path(product_id: product) %>
 			</div>
