@@ -8,6 +8,7 @@
 		<td>Single price</td>
 		<td>&times;</td>
 		<td>Total</td>
+		<td></td>
 	</tr>
 	<% @cart.line_items.each do |item| %>
 		<tr>
@@ -15,6 +16,7 @@
 			<td><%= format_currency_as_chf(item.product.price) %></td>
 			<td><%= item.quantity %></td>
 			<td><%= format_currency_as_chf(item.total()) %></td>
+			<td><%= link_to 'Delete', item, :confirm => "Are you sure?", :method => :delete %></td>
 		</tr>
 	<% end %>
 	<tr class="totalprice">
