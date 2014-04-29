@@ -2,19 +2,30 @@
 	<p id="notice"><%= notice %></p>
 <% end %>
 
-<h1>My Pragmatic Catalog</h1>
+<div class="page-header">
+	<h1>My Pragmatic Catalog</h1>
+</div>
 
-<% cache ['store', Product.latest] do %>
-	<% @products.each do |product| %>
-		<% cache ['entry', product] do %>
-			<div class="entry">
-				<h3><%= product.title %></h3>
-				<%= image_tag(product.image_url) %>
-				<div class="price_line">
-					Price: <span class="price"><%= format_currency_as_chf(product.price) %></span>
+<div class="row">
+	<% cache ['store', Product.latest] do %>
+		<% @products.each do |product| %>
+			<% cache ['entry', product] do %>
+				<div class="col-sm-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4><%= product.title %></h4>
+						</div>
+
+						<div class="panel-body text-center">
+							<%= image_tag(product.image_url) %>
+							<div class="price_line">
+								<strong><%= format_currency_as_chf(product.price) %></strong>
+								<%= button_to "Add To Cart".html_safe,line_items_path(product_id: product), class: "btn btn-success" %>
+							</div>
+						</div>
+					</div>
 				</div>
-				<%= button_to 'Add to Cart', line_items_path(product_id: product) %>
-			</div>
+			<% end %>
 		<% end %>
 	<% end %>
-<% end %>
+</div>
