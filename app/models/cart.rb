@@ -10,4 +10,10 @@ class Cart < ActiveRecord::Base
     end
     current_item
   end
+
+  def total_price
+    sum = 0
+    line_items.each { |item| sum+=item.total()}
+    sum
+  end
 end
