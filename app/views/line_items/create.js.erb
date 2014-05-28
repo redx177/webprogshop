@@ -1,0 +1,22 @@
+<% @minimize = true %>
+$('#cart').html("<%= escape_javascript render(@cart) %>");
+
+/*
+$('.current_item').css({'background-color':'#5CB85C'}).animate({'background-color':'#FFFFFF'}, 1000);
+*/
+$.fn.animateHighlight = function (highlightColor) {
+	 var highlightBg = highlightColor || "#5CB85C";
+	 var animateMs = 1000;
+	 var originalBg = this.css("background-color");
+
+	 if (!originalBg || originalBg == highlightBg)
+		originalBg = "#FFFFFF"; // default to white
+
+	 jQuery(this)
+		.css("backgroundColor", highlightBg)
+		.animate({ backgroundColor: originalBg }, animateMs, "linear", function () {
+			jQuery(this).css("backgroundColor", originalBg);
+		});
+ };
+
+$('.current_item').animateHighlight();

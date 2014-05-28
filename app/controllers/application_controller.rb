@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include CurrentCart
+  before_action :set_cart
   helper_method :format_currency_as_chf
 
   # Prevent CSRF attacks by raising an exception.

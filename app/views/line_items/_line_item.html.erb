@@ -1,0 +1,18 @@
+<%
+   currentClass = ""
+   if line_item == @current_item
+	 currentClass = " class=current_item"
+   end
+%>
+<tr>
+	<td<%=currentClass%>><%= line_item.product.title %></td>
+	<% if !@minimize %>
+	   <td<%=currentClass%>><%= format_currency_as_chf(line_item.product.price) %></td>
+	<% end %>
+	<td<%=currentClass%>><%= line_item.quantity %></td>
+	<td<%=currentClass%>><%= format_currency_as_chf(line_item.total()) %></td>
+
+	<% if !@minimize %>
+		<td<%=currentClass%>><%= link_to 'Delete', line_item, :confirm => "Are you sure?", :method => :delete, class: "btn btn-danger" %></td>
+	<% end %>
+</tr>
