@@ -16,8 +16,12 @@
   width: 22px;
 }
 
+#wrapper .container {
+  width: auto;
+}
 #sidebar-wrapper {
   border-right: 1px solid #000;
+
 
   #cart {
     td {
