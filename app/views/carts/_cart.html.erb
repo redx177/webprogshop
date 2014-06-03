@@ -31,6 +31,7 @@
 	</table>
 </div>
 
+	<%= button_to 'Empty cart', @cart, method: :delete, class: "btn btn-danger btn-xs", data: { confirm: 'Are you sure?' } %>
 <% if !@minimize %>
 	<%= link_to 'Back', carts_path %>
 <% end %>
