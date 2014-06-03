@@ -1,37 +1,42 @@
-<div class="page-header">
-	<h1>Your Cart</h1>
-</div>
-<div class="table-responsive">
-	<table class="table table-striped">
-		<tr>
-			<th>Product</th>
+<% unless cart.line_items.empty? %>
+	<div class="page-header">
+		<h1>
+			<%= link_to 'Your Cart', @cart %>
+		</h1>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<tr>
+				<th>Product</th>
 
-			<% if !@minimize %>
-				<th>Single price</th>
-			<% end %>
-			<th>&times;</th>
-			<th>Total</th>
-			<% if !@minimize %>
-				<th></th>
-			<% end %>
-		</tr>
+				<% if !@minimize %>
+					<th>Single price</th>
+				<% end %>
+				<th>&times;</th>
+				<th>Total</th>
+				<% if !@minimize %>
+					<th></th>
+				<% end %>
+			</tr>
 
-		<%= render(@cart.line_items) %>
+			<%= render(@cart.line_items) %>
 
-		<tr class="totalprice">
-			<% if !@minimize %>
-				<td colspan="3">Total</td>
-			<% else %>
-				<td colspan="2">Total</td>
-			<% end %>
-			<td colspan="2">
-				<%= format_currency_as_chf(@cart.total_price()) %>
-			</td>
-		</tr>
-	</table>
-</div>
+			<tr class="totalprice">
+				<% if !@minimize %>
+					<td colspan="3">Total</td>
+				<% else %>
+					<td colspan="2">Total</td>
+				<% end %>
+				<td colspan="2">
+					<%= format_currency_as_chf(@cart.total_price()) %>
+				</td>
+			</tr>
+		</table>
+	</div>
 
-	<%= button_to 'Empty cart', @cart, method: :delete, class: "btn btn-danger btn-xs", data: { confirm: 'Are you sure?' } %>
-<% if !@minimize %>
-	<%= link_to 'Back', carts_path %>
+		<%= button_to 'Empty cart', @cart, method: :delete, class: "btn btn-danger btn-xs", data: { confirm: 'Are you sure?' } %>
+	<% if !@minimize %>
+		<br>
+		<%= link_to 'Back', carts_path %>
+	<% end %>
 <% end %>
