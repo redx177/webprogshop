@@ -5,3 +5,12 @@
 .totalprice{
   font-weight: bold;
 }
+
+.carts {
+  .cart_buttons {
+    form,
+    form div {
+      display: inline;
+    }
+  }
+}
