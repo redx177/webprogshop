@@ -16,11 +16,14 @@
 				<li class="<%= is_active?("/products") %>"><a href="/products">Products</a></li>
 				<li class="<%= is_active?("/carts") %>"><a href="/carts">Carts</a></li>
 			</ul>
+
 			<% if @cart %>
-				<div id="cart">
-					<% @minimize = true %>
-					<%= render @cart %>
-				</div>
+				<% unless @cart.line_items.empty? %>
+					<div id="cart">
+						<% @minimize = true %>
+						<%= render @cart %>
+					</div>
+				<% end %>
 			<% end %>
 		</div>
 
